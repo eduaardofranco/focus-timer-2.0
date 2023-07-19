@@ -1,0 +1,67 @@
+:root {
+    font-size: 62.5%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12.5rem;
+    color: #323238;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+}
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.timer {
+    text-align: center;
+}
+.controls {
+    margin-top: 1.7rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem
+}
+.mood {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+    justify-items: right;
+    gap: 3.2rem;
+}
+.mood button svg {
+    pointer-events: none;
+}
+.mood button:hover path:nth-child(1){
+    fill: #c4c4c9;
+}
+.mood .active:hover path:nth-child(1){
+    fill: #02799D;
+}
+.mood .active path{
+    fill: #02799D;
+}
+.mood .active path:nth-child(2){
+    fill: white;
+}
+.mood button:nth-child(2) {
+    justify-self: start;
+}
+.mood button:nth-child(4) {
+    justify-self: start;
+}
+@media (min-width: 1000px) {
+    main {
+        display: flex;
+        align-items: center;
+        gap: 19.2rem;
+    }
+}
