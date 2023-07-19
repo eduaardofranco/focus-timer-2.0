@@ -18,7 +18,10 @@ const rain = new Audio('./src/Chuva.wav')
 const coffeShop = new Audio('./src/Cafeteria.wav')
 const fire = new Audio('./src/Lareira.wav')
 
-
+forest.loop = true
+rain.loop = true
+coffeShop.loop = true
+fire.loop = true
 
 buttonPlay.addEventListener('click', function(e) {
   countdown()
