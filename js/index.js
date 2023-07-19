@@ -38,33 +38,49 @@ buttonRmvMinutes.addEventListener('click', function() {
   removeMinutes()
 })
 buttonForest.addEventListener('click', function(e) {
-  removeActive(e)
   play(forest)
+  removeActive(e, forest)
 })
 buttonRain.addEventListener('click', function(e) {
-  removeActive(e)
   play(rain)
+  removeActive(e, rain)
 })
 buttonShop.addEventListener('click', function(e) {
-  removeActive(e)
   play(coffeShop)
+  removeActive(e, coffeShop)
 })
 buttonFire.addEventListener('click', function(e) {
-  removeActive(e)
   play(fire)
+  removeActive(e, fire)
 })
 
-const removeActive = (event) => {
+const removeActive = (event, soundType) => {
+  
+  const isActive = event.target.classList.contains("active")
+  
+  if(isActive) {
+    event.target.classList.remove("active")
+    stopAll()
+    return
+  }
+
+  stopAll()
   buttonForest.classList.remove('active')
   buttonRain.classList.remove('active')
   buttonShop.classList.remove('active')
   buttonFire.classList.remove('active')
   event.target.classList.add('active')
+  play(soundType)
+}
+
+const stopAll = () => {
   stop(forest)
   stop(rain)
   stop(coffeShop)
   stop(fire)
+
 }
+
 function play(soundType) {
         soundType.play()
 }
