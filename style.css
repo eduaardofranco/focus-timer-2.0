@@ -15,6 +15,43 @@ body {
     align-items: center;
     height: 100vh;
 }
+body.dark {
+    background-color: #121214;
+    color: white;
+}
+.dark svg path {
+    fill: #29292E;
+}
+.dark svg path:nth-child(2) {
+    fill: #C4C4CC;
+}
+.color-mode {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    height: 4.4rem;
+    width: 4.4rem;
+}
+.color-mode {
+    background: url("src/day.svg") no-repeat center;
+}
+.color-mode.dark {
+    background: url("src/night.svg") no-repeat center;
+}
+.dark .mood .active path {
+    fill: #0A3442;
+}
+.dark .mood button:hover path:nth-child(1){
+    fill: #0A3442;
+}
+.dark .controls svg path {
+    fill: #C4C4CC;
+}
+.dark .controls svg:hover path {
+    fill: white;
+}
+
+
 button {
     cursor: pointer;
     border: none;
@@ -37,6 +74,10 @@ button {
     justify-items: right;
     gap: 3.2rem;
 }
+.mood .button-element {
+    height: 15.5rem;
+    position: relative;
+}
 .mood button svg {
     pointer-events: none;
 }
@@ -58,10 +99,49 @@ button {
 .mood button:nth-child(4) {
     justify-self: start;
 }
+/* volume slider  */
+.volume-slider {
+    width: 100%;
+    height: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-35%);
+    bottom: 1.4rem;
+    z-index: 1;
+}
+
+.slider {
+    display: block;
+    -webkit-appearance: none;
+    width: 70%;
+    height: .5rem;
+    border-radius: .5rem;
+    background-color: #323238;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: #323238;
+    cursor: pointer;
+}
+.dark .slider {
+    background-color: white;
+}
+.dark .slider::-webkit-slider-thumb {
+    background-color: white;
+}
+
 @media (min-width: 1000px) {
     main {
         display: flex;
         align-items: center;
         gap: 19.2rem;
+    }
+    .color-mode {
+        right: 6.2rem;
+        top: 6.2rem;
     }
 }

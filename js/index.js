@@ -21,10 +21,20 @@ import {
   buttonRain,
   buttonShop,
   minutesDisplay,
-  secondsDisplay
+  secondsDisplay,
+  screenModeButton,
+  forestVolSlider,
+  rainVolSlider,
+  shopVolSlider,
+  fireVolSlider
   
   } 
   from './elements.js'
+
+  screenModeButton.addEventListener('click', function(event) {
+    document.body.classList.toggle('dark')
+    event.target.classList.toggle('dark')
+  })
 
 buttonPlay.addEventListener('click', function(e) {
   buttonPlay.setAttribute("disabled" , "")
@@ -41,8 +51,8 @@ buttonRmvMinutes.addEventListener('click', function() {
   timer.removeMinutes()
 })
 buttonForest.addEventListener('click', function(e) {
-  playSound(forest)
-  removeActive(e, forest)
+    playSound(forest)
+    removeActive(e, forest)
 })
 buttonRain.addEventListener('click', function(e) {
   playSound(rain)
@@ -55,6 +65,18 @@ buttonShop.addEventListener('click', function(e) {
 buttonFire.addEventListener('click', function(e) {
   playSound(fire)
   removeActive(e, fire)
+})
+forestVolSlider.addEventListener("input", function(valueSlider) {
+  volumeSlider(valueSlider,forest)
+})
+rainVolSlider.addEventListener("input", function(valueSlider) {
+  volumeSlider(valueSlider,rain)
+})
+shopVolSlider.addEventListener("input", function(valueSlider) {
+  volumeSlider(valueSlider,coffeShop)
+})
+fireVolSlider.addEventListener("input", function(valueSlider) {
+  volumeSlider(valueSlider,fire)
 })
 
 const removeActive = (event, soundType) => {
@@ -87,3 +109,8 @@ const timer = Timer({
   secondsStart,
   buttonPlay
 })
+
+const volumeSlider = (valueSlider, element) => {
+  const value = valueSlider.target.value;
+  element.volume = value / 100;
+}

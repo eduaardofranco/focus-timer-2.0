@@ -9,6 +9,11 @@ const buttonShop = document.querySelector('.shop')
 const buttonFire = document.querySelector('.fire')
 const secondsDisplay = document.querySelector('.seconds')
 const minutesDisplay = document.querySelector('.minutes')
+const screenModeButton = document.querySelector('.color-mode')
+const forestVolSlider = document.getElementById("forest-volume-slider")
+const rainVolSlider = document.getElementById("rain-volume-slider")
+const shopVolSlider = document.getElementById("shop-volume-slider")
+const fireVolSlider = document.getElementById("fire-volume-slider")
 let minutesStart = minutesDisplay.textContent
 let secondsStart = secondsDisplay.textContent
 let minutes = Number(minutesDisplay.textContent)
@@ -28,5 +33,10 @@ export {
     minutesStart,
     secondsStart,
     minutes,
-    seconds
+    seconds,
+    screenModeButton,
+    forestVolSlider,
+    rainVolSlider,
+    shopVolSlider,
+    fireVolSlider
 }
